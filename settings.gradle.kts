@@ -1,4 +1,4 @@
-rootProject.name = "HeimdallCMPPermissions"
+rootProject.name = "heimdall"
 enableFeaturePreview("TYPESAFE_PROJECT_ACCESSORS")
 
 pluginManagement {
