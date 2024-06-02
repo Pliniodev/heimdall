@@ -8,6 +8,7 @@ plugins {
     alias(libs.plugins.compose.compiler)
     alias(libs.plugins.ktlint)
     kotlin("kapt")
+    `maven-publish`
 }
 
 kotlin {
@@ -69,5 +70,20 @@ ktlint {
     }
     filter {
         exclude("**/generated/**")
+    }
+}
+
+// Maven local publish script
+publishing {
+    publications {
+        create<MavenPublication>("ReleaseAar") {
+            groupId = "com.pliniodev"
+            artifactId = "heimdall"
+            version = "0.10.0"
+
+            afterEvaluate {
+                artifact(tasks.getByName("bundleReleaseAar"))
+            }
+        }
     }
 }
