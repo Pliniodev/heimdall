@@ -26,7 +26,7 @@ kotlin {
         iosSimulatorArm64(),
     ).forEach {
         it.binaries.framework {
-            baseName = "heimdall"
+            baseName = "permissions"
             isStatic = true
         }
     }
@@ -79,7 +79,7 @@ publishing {
         create<MavenPublication>("ReleaseAar") {
             groupId = "com.pliniodev"
             artifactId = "heimdall"
-            version = "0.10.0"
+            version = "0.1.1"
 
             afterEvaluate {
                 artifact(tasks.getByName("bundleReleaseAar"))

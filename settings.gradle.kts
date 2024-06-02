@@ -1,4 +1,3 @@
-rootProject.name = "heimdall"
 enableFeaturePreview("TYPESAFE_PROJECT_ACCESSORS")
 
 pluginManagement {
@@ -28,5 +27,6 @@ dependencyResolutionManagement {
     }
 }
 
+rootProject.name = "heimdall"
 include(":composeApp")
 include(":heimdall")
