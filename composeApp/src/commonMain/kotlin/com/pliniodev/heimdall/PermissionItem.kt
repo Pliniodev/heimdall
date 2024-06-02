@@ -1,20 +1,15 @@
+package com.pliniodev.heimdall
+
 import androidx.compose.animation.AnimatedVisibility
-import androidx.compose.animation.animateColorAsState
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.padding
 import androidx.compose.material.Button
-import androidx.compose.material.Icon
 import androidx.compose.material.MaterialTheme
 import androidx.compose.material.Text
-import androidx.compose.material.icons.Icons
-import androidx.compose.material.icons.filled.Check
-import androidx.compose.material.icons.outlined.Add
-import androidx.compose.material.icons.outlined.Close
 import androidx.compose.runtime.Composable
-import androidx.compose.runtime.getValue
 import androidx.compose.runtime.remember
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
@@ -29,7 +24,7 @@ internal fun PermissionItem(
     onRequestClick: () -> Unit,
     onOpenSettingsClick: () -> Unit,
 ) {
-    val (stateTitle, stateColor) = remember(permissionState){
+    val (stateTitle, stateColor) = remember(permissionState) {
         when (permissionState) {
             PermissionState.GRANTED -> "Granted" to Color.Green
             PermissionState.NOT_DETERMINED -> "Not determined" to Color.Gray
@@ -53,7 +48,7 @@ internal fun PermissionItem(
             )
             Text(
                 text = stateTitle,
-                color = stateColor
+                color = stateColor,
             )
             Button(
                 onClick = onOpenSettingsClick,

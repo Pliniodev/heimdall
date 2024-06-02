@@ -17,7 +17,9 @@ enum class PermissionState {
     /**
      * Indicates that the permission has been requested but the user denied the permission
      */
-    DENIED;
+    DENIED,
+
+    ;
 
     /**
      * Extension function to check if the permission is not granted

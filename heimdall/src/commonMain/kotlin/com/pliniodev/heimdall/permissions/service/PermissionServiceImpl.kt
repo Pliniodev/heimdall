@@ -2,13 +2,13 @@ package com.pliniodev.heimdall.permissions.service
 
 import com.pliniodev.heimdall.permissions.getPermissionDelegate
 import com.pliniodev.heimdall.permissions.model.Permission
-import org.koin.core.component.KoinComponent
 import com.pliniodev.heimdall.permissions.model.PermissionState
 import com.pliniodev.heimdall.permissions.service.PermissionService.Companion.MAX_PERMISSION_CHECKS
 import com.pliniodev.heimdall.permissions.service.PermissionService.Companion.PERMISSION_CHECK_FLOW_FREQUENCY
 import kotlinx.coroutines.delay
 import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.flow
+import org.koin.core.component.KoinComponent
 
 internal class PermissionServiceImpl : PermissionService, KoinComponent {
     override fun checkPermission(permission: Permission): PermissionState {
@@ -29,11 +29,10 @@ internal class PermissionServiceImpl : PermissionService, KoinComponent {
             e.printStackTrace()
         }
     }
-    
-    
+
     override fun checkPermissionFlow(permission: Permission): Flow<PermissionState> {
         return flow {
-            repeat (MAX_PERMISSION_CHECKS) {
+            repeat(MAX_PERMISSION_CHECKS) {
                 val permissionState = checkPermission(permission)
                 emit(permissionState)
                 delay(PERMISSION_CHECK_FLOW_FREQUENCY) // talvez um broadcast receiver

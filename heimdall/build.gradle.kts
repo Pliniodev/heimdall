@@ -1,3 +1,4 @@
+
 import org.jlleitschuh.gradle.ktlint.reporter.ReporterType
 
 plugins {
@@ -17,11 +18,11 @@ kotlin {
             }
         }
     }
-    
+
     listOf(
         iosX64(),
         iosArm64(),
-        iosSimulatorArm64()
+        iosSimulatorArm64(),
     ).forEach {
         it.binaries.framework {
             baseName = "heimdall"
@@ -65,5 +66,8 @@ ktlint {
     ignoreFailures = false
     reporters {
         reporter(ReporterType.JSON)
+    }
+    filter {
+        exclude("**/generated/**")
     }
 }

@@ -33,15 +33,19 @@ internal fun checkPermissions(
     activity: Lazy<Activity>,
     permissions: List<String>,
 ): PermissionState {
-    
     permissions.ifEmpty { return PermissionState.GRANTED } // no permissions needed
-    val status = permissions.map(context::checkSelfPermission) 
+    val status = permissions.map(context::checkSelfPermission)
+
     val isAllGranted: Boolean = status.all { it == PackageManager.PERMISSION_GRANTED }
+
     if (isAllGranted) return PermissionState.GRANTED
     val isAllRequestRationale = checkRequestPermissionRationale(activity, permissions)
-    
-    return if (isAllRequestRationale) PermissionState.NOT_DETERMINED
-    else PermissionState.DENIED
+
+    return if (isAllRequestRationale) {
+        PermissionState.NOT_DETERMINED
+    } else {
+        PermissionState.DENIED
+    }
 }
 
 internal fun Activity.providePermissions(
@@ -50,7 +54,9 @@ internal fun Activity.providePermissions(
 ) {
     try {
         ActivityCompat.requestPermissions(
-            this, permissions.toTypedArray(), PERMISSION_REQUEST_CODE
+            this,
+            permissions.toTypedArray(),
+            PERMISSION_REQUEST_CODE,
         )
     } catch (t: Throwable) {
         onError(t)
@@ -61,7 +67,7 @@ internal fun Context.openAppSettingsPage(permission: Permission) {
     openPage(
         action = Settings.ACTION_APPLICATION_DETAILS_SETTINGS,
         newData = Uri.parse("package:$packageName"),
-        onError = { throw CannotOpenSettingsException(permission.name) }
+        onError = { throw CannotOpenSettingsException(permission.name) },
     )
 }
 

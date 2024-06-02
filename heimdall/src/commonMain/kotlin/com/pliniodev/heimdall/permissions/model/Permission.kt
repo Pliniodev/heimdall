@@ -6,7 +6,7 @@ package com.pliniodev.heimdall.permissions.model
  * each value permission here is related to it's respective injection
  */
 enum class Permission(val title: String) {
-    
+
     /**
      * App location background permission.
      */
