@@ -1,3 +1,5 @@
+package com.pliniodev.heimdall.di
+
 import com.pliniodev.heimdall.permissions.permissionsModule
 import org.koin.core.KoinApplication
 import org.koin.core.context.startKoin

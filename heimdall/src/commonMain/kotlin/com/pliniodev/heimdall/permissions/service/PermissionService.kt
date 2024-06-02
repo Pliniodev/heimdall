@@ -9,7 +9,7 @@ interface PermissionService {
     suspend fun providePermission(permission: Permission)
     fun checkPermissionFlow(permission: Permission): Flow<PermissionState>
     fun openSettingPage(permission: Permission)
-    
+
     companion object {
         const val PERMISSION_CHECK_FLOW_FREQUENCY = 1000L
         const val MAX_PERMISSION_CHECKS = 10

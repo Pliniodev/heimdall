@@ -1,9 +1,7 @@
 package com.pliniodev.heimdall.permissions.delegate
 
-import com.pliniodev.heimdall.permissions.model.Permission
 import com.pliniodev.heimdall.permissions.model.PermissionState
 import com.pliniodev.heimdall.permissions.openAppSettingsPage
-import platform.UIKit.UIViewController
 
 internal class StoragePermissionDelegate() : PermissionDelegate {
     override fun getPermissionState(): PermissionState {
@@ -14,6 +12,6 @@ internal class StoragePermissionDelegate() : PermissionDelegate {
     override suspend fun providePermission() {}
 
     override fun openSettingPage() {
-       openAppSettingsPage()
+        openAppSettingsPage()
     }
 }
