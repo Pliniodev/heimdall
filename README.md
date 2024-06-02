@@ -1,9 +1,4 @@
 
-![Captura de Tela 2024-06-02 às 11 17 28]()
-
-
-
-
 <div align="center">
     <h3>
       chords-diagram  
