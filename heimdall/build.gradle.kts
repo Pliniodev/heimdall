@@ -47,7 +47,7 @@ kotlin {
 }
 
 android {
-    namespace = "com.pliniodev.heimdall"
+    namespace = "com.pliniodev.permissions"
     compileSdk = 34
     defaultConfig {
         minSdk = 24
