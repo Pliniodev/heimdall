@@ -79,7 +79,7 @@ publishing {
         create<MavenPublication>("ReleaseAar") {
             groupId = "com.pliniodev"
             artifactId = "heimdall"
-            version = "0.1.1"
+            version = "0.1.2"
 
             afterEvaluate {
                 artifact(tasks.getByName("bundleReleaseAar"))
