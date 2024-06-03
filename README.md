@@ -21,10 +21,10 @@ quick start
 ```
 maven { url 'https://jitpack.io' }
 ```
-```
+```kotlin
 dependencies {
-	        implementation 'com.github.Pliniodev:heimdall:version'
-	}
+     implementation 'com.github.Pliniodev:heimdall:version'
+}
 ```
 
 <h3>Example of use</h3>
