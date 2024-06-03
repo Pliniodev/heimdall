@@ -10,7 +10,8 @@ A Compose multiplatform library to request permissions.
 <br>
 
 
-[![](https://jitpack.io/v/Pliniodev/chords-diagram.svg)](https://jitpack.io/#Pliniodev/chords-diagram)
+[![](https://jitpack.io/v/Pliniodev/heimdall.svg)](https://jitpack.io/#Pliniodev/heimdall)
+
     
 </div>
 
