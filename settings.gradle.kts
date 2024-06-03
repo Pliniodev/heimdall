@@ -27,6 +27,6 @@ dependencyResolutionManagement {
     }
 }
 
-rootProject.name = "heimdall"
+rootProject.name = "heimdall-permissions"
 include(":composeApp")
 include(":heimdall")
