@@ -22,8 +22,8 @@ maven { url 'https://jitpack.io' }
 ```
 ```
 dependencies {
-    implementation 'com.github.Pliniodev:chords-diagram:version'
-}
+	        implementation 'com.github.Pliniodev:heimdall:version'
+	}
 ```
 
 <h3>Example of use</h3>
