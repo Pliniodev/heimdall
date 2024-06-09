@@ -8,7 +8,7 @@ plugins {
     alias(libs.plugins.compose.compiler)
     alias(libs.plugins.ktlint)
     kotlin("kapt")
-    `maven-publish`
+    alias(libs.plugins.mavenPublish)
 }
 
 kotlin {
@@ -47,7 +47,12 @@ kotlin {
 }
 
 android {
-    namespace = "com.pliniodev.permissions"
+    namespace = "io.github.pliniodev"
+    publishing {
+        singleVariant("release") {
+            withSourcesJar()
+        }
+    }
     compileSdk = 34
     defaultConfig {
         minSdk = 24
@@ -73,16 +78,43 @@ ktlint {
     }
 }
 
-// Maven local publish script
-publishing {
-    publications {
-        create<MavenPublication>("ReleaseAar") {
-            groupId = "com.pliniodev"
-            artifactId = "heimdall"
-            version = "0.1.2"
+afterEvaluate {
+    publishing {
+        publications {
+            create<MavenPublication>("release") {
+                from(components["release"])
+                groupId = "io.github.pliniodev"
+                artifactId = "heimdall"
+                version = "0.1.0"
 
-            afterEvaluate {
-                artifact(tasks.getByName("bundleReleaseAar"))
+                pom {
+                    packaging = "aar"
+                    name.set("heimdall")
+                    description.set("heimdall: CMP library for permissions")
+                    url.set("https://github.com/Pliniodev/heimdall")
+                    inceptionYear.set("2024")
+
+                    licenses {
+                        license {
+                            name.set("MIT License")
+                            url.set("https://opensource.org/licenses/MIT")
+                        }
+                    }
+
+                    developers {
+                        developer {
+                            id.set("Pliniodev")
+                            name.set("Pliniodev")
+                            email.set("pliniodevprojetos@gmail.com")
+                        }
+                    }
+
+                    scm {
+                        connection.set("scm:git@github.com:pliniodev/heimdall.git")
+                        developerConnection.set("scm:git@github.com:pliniodev/heimdall.git")
+                        url.set("https://github.com/pliniodev/heimdall.git")
+                    }
+                }
             }
         }
     }
